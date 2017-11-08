@@ -1,3 +1,4 @@
+alert("导航页面还在不断完善中......");
 var links = [
     {
         q:'qq.com',
