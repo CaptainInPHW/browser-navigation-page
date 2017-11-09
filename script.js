@@ -45,9 +45,8 @@ for (var i = 0; i < 3; i++) {
 };
 
 var p = document.createElement("p");
-p.innerHTML = "<span>使用说明</span>:<br>1. “ <span>Ctrl + E</span> ” 可自定义与字母关联的导航地址<br>2. “ <span>Ctrl + D</span> ” 可重置与字母关联的导航地址<br>3. 修改时字母和导航地址时<span>大小写不敏感</span><br>4. 字母相关的导航地址可将鼠标悬浮其上查看 "
+p.innerHTML = "<span>使用说明</span>:<br>1. <span>Ctrl + E</span> 可自定义与字母关联的导航地址<br>2. <span>Ctrl + D</span> 可重置与字母关联的导航地址<br>3. 修改时字母和导航地址对 <span>大小写不敏感</span><br>4. 字母相关的导航地址可将鼠标悬浮其上查看 "
 document.querySelector("body").appendChild(p);
-
 
 function createKeyBoard(arr1,arr2){
     var body = document.querySelector("body");
