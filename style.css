@@ -6,6 +6,43 @@ body{
 	padding: 200px 0;
 	background: #eee;
 }
+form{
+	padding-bottom: 50px;
+	text-align: center;
+}
+input{
+	display: inline-block;
+	width: 300px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 18px;
+	border: none;
+	border-bottom: 3px solid #222;
+	box-sizing: border-box;
+	background: transparent;
+	/*outline: 1px solid red;*/
+}
+input:focus{
+	outline: none;
+}
+form a{
+	display: inline-block;
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	color: #fff;
+	font-size: 18px;
+	font-family: "Microsoft YaHei", "微软雅黑";
+	text-decoration: none;
+	border-radius: 5px;
+	background: #222;
+}
+form .baidu{
+	margin: 0 10px;
+}
+form a:hover{
+	cursor: pointer;
+}
 div{
 	margin: 0 auto;
 	width: 700px;
@@ -33,30 +70,36 @@ kbd:hover{
 	backface-visibility: hidden;
 	perspective: 1000px;
 }
-p{
+.description{
 	margin: 50px auto;
 	width: 300px;
 	color: #444;
 	font-size: 14px;
 	font-family: "Microsoft YaHei", "微软雅黑";
 }
-p span{
+.description span{
 	font-weight: bold;
 	color: #222;
+}
+.copyright{
+	color: #222;
+	font-size: 17px;
+	text-align: center;
+}
+.copyright a{
+	color: #000;
+	text-decoration: underline;
 }
 @keyframes shake {
   10%, 90% {
     transform: translate3d(-1px, 0, 0);
   }
-  
   20%, 80% {
     transform: translate3d(2px, 0, 0);
   }
-
   30%, 50%, 70% {
     transform: translate3d(-4px, 0, 0);
   }
-
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }

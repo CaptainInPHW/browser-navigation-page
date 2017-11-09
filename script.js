@@ -1,4 +1,7 @@
 alert("导航页面还在不断完善中......");
+alert("不足之处有：");
+alert("1. 用户自定义字母导航地址后刷新页面将会重置字母导航地址");
+alert("2. 代码可优化，界面可优化");
 var links = [
     {
         q:'qq.com',
@@ -33,22 +36,27 @@ var links = [
         m:'moonbasa.com'
     }
 ];
-
 var rows_keys = new Array();
 var rows_values = new Array();
 for (var i = 0; i < links.length; i++) {
     rows_keys[i] = Object.keys(links[i]);
     rows_values[i] = Object.values(links[i]);
 };
+
+
+
+
+
+createSearchBar();
+createInputEvent();
+createSearchEvent();
 for (var i = 0; i < 3; i++) {
     createKeyBoard(rows_keys[i],rows_values[i]);
 };
-
-var p = document.createElement("p");
-p.innerHTML = "<span>使用说明</span>:<br>1. <span>Ctrl + E</span> 可自定义与字母关联的导航地址<br>2. <span>Ctrl + D</span> 可重置与字母关联的导航地址<br>3. 修改时字母和导航地址对 <span>大小写不敏感</span><br>4. 字母相关的导航地址可将鼠标悬浮其上查看 "
-document.querySelector("body").appendChild(p);
-
-
+addKeyPressEvent();
+createDescription();
+copyRight();
+preventCopyCode();
 
 
 
@@ -58,10 +66,53 @@ document.querySelector("body").appendChild(p);
 
 
 
-
-
-
-
+function createSearchBar(){
+    var body = document.querySelector("body");
+    var form = document.createElement("form");
+    var input = document.createElement("input");
+    var baidu = document.createElement("a");
+    var google = document.createElement("a");
+    input.setAttribute("type","text");
+    input.setAttribute("spellcheck","false");
+    input.setAttribute("placeholder","Search");
+    baidu.setAttribute("class","baidu");
+    google.setAttribute("class","google");
+    baidu.textContent = "百度";
+    google.textContent = "谷歌";
+    body.appendChild(form);
+    form.appendChild(input);
+    form.appendChild(baidu);
+    form.appendChild(google);
+}
+function createInputEvent(){
+    var body = document.querySelector("body");  
+    var input = document.querySelector("input");
+    body.onclick = function (evt){
+        if (evt.target.localName == "input") {
+            console.log("input");
+            input.setAttribute("autofocus","autofocus");
+        } else {
+            console.log("another");
+            input.removeAttribute("autofocus");
+        }
+    }
+}
+function createSearchEvent(){
+    var search_buttons = document.querySelectorAll("a");
+    for (var i = 0; i < search_buttons.length; i++) {
+        search_buttons[i].onclick = function (evt){
+            var question = document.querySelector("input").value;
+            if (question) {
+                switch(evt.target.className) {
+                    case "baidu": window.open("https://www.baidu.com/s?wd=" + question); break;
+                    case "google": window.open("https://www.google.com/search?q=" + question); break;
+                }
+            } else {
+                alert("你好像需要输入点什么～");
+            }
+        }
+    }
+}
 function createKeyBoard(arr1,arr2){
     var body = document.querySelector("body");
     var div = document.createElement('div');
@@ -71,25 +122,28 @@ function createKeyBoard(arr1,arr2){
         kbd.setAttribute("title","https://www." + arr2[i]);
         kbd.textContent = arr1[i];
         div.appendChild(kbd);
-        kbd.onclick = function(evt){
+        kbd.onclick = function (evt){
             window.open(evt.target.getAttribute("title"),"_blank");
         };
     }
 };
 function addKeyPressEvent(){
     window.onkeydown = function(evt){
-        evt.preventDefault();
-        if (evt.ctrlKey) {
-            switch(evt.code){
-                case "KeyE": editKeyBoard(); break;
-                case "KeyD": deleteKeyBoard(); break;
-            };
-        } else {
-            if (!evt.altKey) {
-                var kbds = document.querySelectorAll("kbd");
-                for (var i = 0; i < kbds.length; i++) {
-                    if (evt.code.indexOf(kbds[i].innerText) == 3) {
-                        window.open(kbds[i].getAttribute("title"),"_blank");
+        var input = document.querySelector("input");
+        if (!input.getAttribute("autofocus")){
+            evt.preventDefault();
+            if (evt.ctrlKey) {
+                switch(evt.code){
+                    case "KeyE": editKeyBoard(); break;
+                    case "KeyD": deleteKeyBoard(); break;
+                };
+            } else {
+                if (!evt.altKey) {
+                    var kbds = document.querySelectorAll("kbd");
+                    for (var i = 0; i < kbds.length; i++) {
+                        if (evt.code.indexOf(kbds[i].innerText) == 3) {
+                            window.open(kbds[i].getAttribute("title"),"_blank");
+                        }
                     }
                 }
             }
@@ -150,11 +204,23 @@ function deleteKeyBoard(){
         alert("填上字母才可以哦！");
     }
 }
+function createDescription(){
+    var body = document.querySelector("body");
+    var p = document.createElement("p");
+    p.setAttribute("class","description");
+    p.innerHTML = "<span>使用说明</span>:<br>1. <span>Ctrl + E</span> 可自定义与字母关联的导航地址<br>2. <span>Ctrl + D</span> 可重置与字母关联的导航地址<br>3. 修改时字母和导航地址对 <span>大小写不敏感</span><br>4. 字母相关的导航地址可将鼠标悬浮其上查看 "
+    body.appendChild(p);
+}
+function copyRight(){
+    var body = document.querySelector("body");
+    var p = document.createElement("p");
+    p.setAttribute("class","copyright");
+    p.innerHTML = "Copyright&nbsp;&copy;&nbsp;2014-2017&nbsp;戴江涛&nbsp;<a href='http://www.captaininphw.xyz' target='_blank'>captaininphw.xyz</a>&nbsp;版权所有";
+    body.appendChild(p);
+}
 function preventCopyCode(){
     window.oncontextmenu = function(evt){
         alert("请尊重别人的劳动成果！");
         return false;
     }
 }
-addKeyPressEvent();
-preventCopyCode();
