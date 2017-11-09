@@ -1,6 +1,7 @@
 *{	
 	margin: 0;
 	padding: 0;
+	outline: 1px solid red;
 }
 body{
 	padding: 200px 0;
@@ -35,10 +36,13 @@ kbd:hover{
 }
 p{
 	margin: 50px auto;
-	width: 350px;
+	width: 300px;
+	color: #444;
+	font-size: 14px;
 }
 p span{
 	font-weight: bold;
+	color: #222;
 }
 @keyframes shake {
   10%, 90% {
