@@ -157,4 +157,4 @@ function preventCopyCode(){
     }
 }
 addKeyPressEvent();
-// preventCopyCode();
+preventCopyCode();
