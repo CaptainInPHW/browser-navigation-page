@@ -72,13 +72,7 @@ function createInputEvent(){
     var body = document.querySelector("body");  
     var input = document.querySelector("input");
     body.onclick = function (evt){
-        if (evt.target.localName == "input") {
-            console.log("input");
-            input.setAttribute("autofocus","autofocus");
-        } else {
-            console.log("another");
-            input.removeAttribute("autofocus");
-        }
+        evt.target.localName == "input" ? input.setAttribute("autofocus","autofocus"):input.removeAttribute("autofocus");
     }
 }
 function createSearchEvent(){
