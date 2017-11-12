@@ -40,11 +40,6 @@ for (var i = 0; i < links.length; i++) {
     rows_keys[i] = Object.keys(links[i]);
     rows_values[i] = Object.values(links[i]);
 };
-
-
-
-
-
 createSearchBar();
 createInputEvent();
 createSearchEvent();
@@ -55,15 +50,6 @@ addKeyPressEvent();
 createDescription();
 copyRight();
 preventCopyCode();
-
-
-
-
-
-
-
-
-
 function createSearchBar(){
     var body = document.querySelector("body");
     var form = document.createElement("form");
