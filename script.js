@@ -8,14 +8,14 @@ var links = [
         r:'renren.com',
         t:'twitter.com',
         y:'youtube.com',
-        u:'u17.com',
+        u:'ubuntu.com',
         i:'iciba.com',
         o:'office.com',
-        p:'paipai.com'
+        p:'processon.com'
     },
     {
         a:'alipay.com',
-        s:'sm.ms',
+        s:'shadowsocks.org',
         d:'deepin.org',
         f:'facebook.com',
         g:'github.com',
@@ -25,13 +25,13 @@ var links = [
         l:'leetcode.com'
     },
     {
-        z:'zhaopin.com',
+        z:'zybuluo.com',
         x:'xunlei.com',
         c:'ctrip.com',
         v:'vip.com',
         b:'baidu.com',
-        n:'news.souhu.com',
-        m:'moonbasa.com'
+        n:'nodejs.org',
+        m:'material-ui.com'
     }
 ];
 var rows_keys = new Array();
@@ -86,13 +86,7 @@ function createInputEvent(){
     var body = document.querySelector("body");  
     var input = document.querySelector("input");
     body.onclick = function (evt){
-        if (evt.target.localName == "input") {
-            console.log("input");
-            input.setAttribute("autofocus","autofocus");
-        } else {
-            console.log("another");
-            input.removeAttribute("autofocus");
-        }
+        evt.target.localName == "input" ? input.setAttribute("autofocus","autofocus"): input.removeAttribute("autofocus");
     }
 }
 function createSearchEvent(){
@@ -139,7 +133,7 @@ function addKeyPressEvent(){
                 if (!evt.altKey) {
                     var kbds = document.querySelectorAll("kbd");
                     for (var i = 0; i < kbds.length; i++) {
-                        if (evt.code.indexOf(kbds[i].innerText) == 3) {
+                        if (evt.code.lastIndexOf(kbds[i].innerText) == 3) {
                             window.open(kbds[i].getAttribute("title"),"_blank");
                         }
                     }
