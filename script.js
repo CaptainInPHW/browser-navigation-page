@@ -1,4 +1,4 @@
-alert("导航页面还在不断完善中......");
+﻿alert("导航页面还在不断完善中......");
 alert("不足之处有：   1. 用户自定义字母导航地址后刷新页面将会重置字母导航地址   2. 代码可优化，界面可优化");
 var links = [
     {
@@ -97,11 +97,11 @@ function createKeyBoard(arr1,arr2){
     body.appendChild(div);
     for (let i = 0; i < arr1.length; i++) {
         var kbd = document.createElement('kbd');
-        kbd.setAttribute("title","https://www." + arr2[i]);
+        kbd.setAttribute("title", arr2[i]);
         kbd.textContent = arr1[i];
         div.appendChild(kbd);
         kbd.onclick = function (evt){
-            window.open(evt.target.getAttribute("title"),"_blank");
+            window.open("//" + evt.target.getAttribute("title"),"_blank");
         };
     }
 };
@@ -120,7 +120,7 @@ function addKeyPressEvent(){
                     var kbds = document.querySelectorAll("kbd");
                     for (var i = 0; i < kbds.length; i++) {
                         if (evt.code.lastIndexOf(kbds[i].innerText) == 3) {
-                            window.open(kbds[i].getAttribute("title"),"_blank");
+                            window.open("//" + kbds[i].getAttribute("title"),"_blank");
                         }
                     }
                 }
@@ -146,7 +146,7 @@ function editKeyBoard(){
             var kbds = document.querySelectorAll("kbd");
             for (var i = 0; i < kbds.length; i++) {
                 if (kbds[i].innerText == letter_uppercase) {
-                    kbds[i].setAttribute("title","https://" + user_link); 
+                    kbds[i].setAttribute("title", user_link); 
                 }
             }
         } else {
@@ -169,7 +169,7 @@ function deleteKeyBoard(){
                         var kbds = document.querySelectorAll("kbd");
                         for (var k = 0; k < kbds.length; k++) {
                             if (kbds[k].innerText == letter_uppercase) {
-                                kbds[k].setAttribute("title","https://" + rows_values[i][j]); 
+                                kbds[k].setAttribute("title", rows_values[i][j]); 
                             }
                         }
                     }
