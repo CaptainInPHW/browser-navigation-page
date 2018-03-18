@@ -1,6 +1,4 @@
-﻿alert("导航页面还在不断完善中......");
-alert("不足之处有：   1. 用户自定义字母导航地址后刷新页面将会重置字母导航地址   2. 代码可优化，界面可优化");
-var links = [
+﻿var links = [
     {
         q:'qq.com',
         w:'weibo.com',
@@ -69,7 +67,7 @@ function createSearchBar(){
     form.appendChild(google);
 }
 function createInputEvent(){
-    var body = document.querySelector("body");  
+    var body = document.querySelector("body");
     var input = document.querySelector("input");
     body.onclick = function (evt){
         evt.target.localName == "input" ? input.setAttribute("autofocus","autofocus"): input.removeAttribute("autofocus");
@@ -136,17 +134,10 @@ function editKeyBoard(){
         var result = letter_uppercase.match(/[a-zA-Z]/g);
         if (result && result.length == 1) {
             alert("修改成功！");
-            // for (let i = 0; i < rows_keys.length; i++) {
-            //     for (let j = 0; j < rows_keys[i].length; j++) {
-            //         if (rows_keys[i][j].toUpperCase() == letter_uppercase) {
-            //             rows_values[i][j] = user_link;
-            //         }
-            //     }
-            // }
             var kbds = document.querySelectorAll("kbd");
             for (var i = 0; i < kbds.length; i++) {
                 if (kbds[i].innerText == letter_uppercase) {
-                    kbds[i].setAttribute("title", user_link); 
+                    kbds[i].setAttribute("title", user_link);
                 }
             }
         } else {
@@ -169,7 +160,7 @@ function deleteKeyBoard(){
                         var kbds = document.querySelectorAll("kbd");
                         for (var k = 0; k < kbds.length; k++) {
                             if (kbds[k].innerText == letter_uppercase) {
-                                kbds[k].setAttribute("title", rows_values[i][j]); 
+                                kbds[k].setAttribute("title", rows_values[i][j]);
                             }
                         }
                     }
