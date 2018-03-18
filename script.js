@@ -47,7 +47,6 @@ for (var i = 0; i < 3; i++) {
 addKeyPressEvent();
 createDescription();
 copyRight();
-preventCopyCode();
 function createSearchBar(){
     var body = document.querySelector("body");
     var form = document.createElement("form");
