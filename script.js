@@ -187,9 +187,3 @@ function copyRight(){
     p.innerHTML = "Copyright&nbsp;&copy;&nbsp;2014-2017&nbsp;戴江涛&nbsp;<a href='http://www.captaininphw.xyz' target='_blank'>captaininphw.xyz</a>&nbsp;版权所有";
     body.appendChild(p);
 }
-function preventCopyCode(){
-    window.oncontextmenu = function(evt){
-        alert("请尊重别人的劳动成果！");
-        return false;
-    }
-}
