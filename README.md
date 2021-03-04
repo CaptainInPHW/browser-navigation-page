@@ -1,7 +1,7 @@
-### 小清新的导航页面
+# Simple Navigation
 
-简约、扁平化的 UI 界面深受大众的喜爱。
+Press the letter on the keyboard to jump to the page bound to the letter.
 
-该导航页面特色在于用户敲击键盘上的字母，即可快速导航至与该字母相关联的页面，当然，用户可以自定义相关联的页面。
+> Tip: you can search on touch bar. 🤣
 
-Have fun！
+![simple navigation](./screenshot.jpg)
